@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Formulário de Pedido</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Finalizar Pedido</h1>
+
+      <form action="#" method="post" autocomplete="on" enctype="multipart/form-data">
+        <!-- Seção 1: Informações do Cliente -->
+        <fieldset>
+          <legend>Informações do Cliente</legend>
+
+          <label for="nome">Nome Completo</label>
+          <input id="nome" name="nome" type="text" required autocomplete="name" placeholder="João da Silva" aria-required="true">
+          <br>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="seu@exemplo.com" aria-required="true">
+          <br>
+          <label for="telefone">Telefone</label>
+          <input id="telefone" name="telefone" type="tel" required inputmode="tel"
+                 pattern="^\(\d{2}\) \d{5}-\d{4}$"
+                 title="Use o formato (XX) 99999-9999 — inclua parênteses e hífen"
+                 placeholder="(11) 91234-5678" aria-required="true">
+          <small>Formato esperado: <code>(XX) 99999-9999</code></small>
+          <br>
+          <label for="senha">Senha de Acesso (para clientes novos)</label>
+          <input id="senha" name="senha" type="password"
+                 minlength="8"
+                 pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}"
+                 title="A senha deve ter 8+ caracteres, com pelo menos uma letra maiúscula, uma minúscula e um dígito."
+                 placeholder="Crie uma senha segura" aria-describedby="senha-obs">
+          <small id="senha-obs">Opcional para clientes existentes — se for novo, crie uma senha segura.</small>
+          <br>
+          <label for="site">Site (opcional)</label>
+          <input id="site" name="site" type="url" placeholder="https://www.seusite.com">
+          <small>Forneça a URL completa (inclua <code>https://</code>) para validação nativa.</small>
+
+        </fieldset>
+
+        <!-- Seção 2: Detalhes do Pedido -->
+        <fieldset>
+          <legend>Detalhes do Pedido</legend>
+
+          <label for="cor">Cor Preferencial do Produto</label>
+          <input id="cor" name="cor" type="color" value="#2563eb" aria-label="Cor preferencial">
+          <br>
+          <label for="entrega">Data e Hora de Entrega</label>
+          <input id="entrega" name="entrega" type="datetime-local"
+                 min="2026-01-01T00:00" max="2026-12-31T23:59"
+                 required aria-required="true">
+          <small>Disponível entre 01/01/2026 e 31/12/2026.</small>
+          <br>
+          <label for="quantidade">Quantidade de Itens (1–10)</label>
+          <input id="quantidade" name="quantidade" type="range" min="1" max="10" value="5" aria-valuemin="1" aria-valuemax="10">
+          <small>Valor padrão: 5</small>
+          <br>
+          <label for="modelo">Modelo de Produto</label>
+          <input id="modelo" name="modelo" list="modelos" placeholder="Escolha ou digite um modelo">
+          <datalist id="modelos">
+            <option value="Laptop Pro"></option>
+            <option value="Tablet Slim"></option>
+            <option value="Smartwatch X"></option>
+          </datalist>
+          <br>
+          <label for="comprovante">Comprovante de Compra (upload obrigatório)</label>
+          <input id="comprovante" name="comprovante" type="file" required
+                 accept=".jpg,.jpeg,.png,.pdf"
+                 title="Envie um arquivo .jpg, .jpeg, .png ou .pdf (máx. 1 arquivo)">
+          <small>Somente imagens (.jpg, .jpeg, .png) ou PDF (.pdf). Upload obrigatório.</small>
+
+        </fieldset>
+
+        <!-- Seção 3: Opções de Envio -->
+        <fieldset>
+          <legend>Opções de Envio</legend>
+
+          <label>Tipo de Envio</label>
+          <div class="row" role="radiogroup" aria-labelledby="envio-legend">
+            <div class="col">
+              <label class="inline"><input type="radio" name="envio" value="normal" checked> Envio Normal</label>
+            </div>
+            <div class="col">
+              <label class="inline"><input type="radio" name="envio" value="expresso"> Envio Expresso</label>
+            </div>
+          </div>
+
+          <label for="comentarios">Comentários Adicionais</label>
+          <textarea id="comentarios" name="comentarios" rows="4" maxlength="300" minlength="10" required aria-required="true"
+                    placeholder="Observações sobre o pedido (mín. 10 caracteres)"></textarea>
+          <small>Máx. 300 caracteres; mínimo 10.</small>
+
+        </fieldset>
+
+        <!-- Seção 4: Finalização -->
+        <fieldset>
+          <legend>Finalização</legend>
+
+          <label class="inline"><input id="termos" name="termos" type="checkbox" required aria-required="true"> Eu concordo com os Termos de Serviço</label>
+
+          <div class="actions">
+            <button type="submit">Finalizar Pedido</button>
+          </div>
+
+        </fieldset>
+
+      </form>
+
+    </main>
+  </body>
+</html>
